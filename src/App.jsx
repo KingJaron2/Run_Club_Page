@@ -12,60 +12,6 @@ const INSTA_PHOTO_1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAWQ4a
 const INSTA_PHOTO_2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuBuGEdczSc13FFFDkE7vvrEqqc9PiaphM36grUcTDIFhUaGyOH5NkViG4LKTipHQy-4pzK_WRuN0eBhSp_GrWRzgNbZE9Tj2M6msflAOKgnrDJJrzsYyNl9knZxjgLYGjjrgYLthd4PXHKaPreYGV5d7o4d_-6MKOEv74l2N8n0YN8XCiExYCZcIPjjq5VIfNAe4TcODhD92g8BUAI5kuelRUTPB_rVQ88e13613I0_";
 const INSTA_PHOTO_3 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDO6zcsyuIWUiKtE4o7Anu9ZXFh-CtEnQbW9ANYXFuqrc9fLlD0d53nUl4JFDnfJiDJTNthLDTVs6Mq7kZzUL5V9Pn9C98SrLaJsMeIQq_MNfsrZXgr5JVg71YNpKd55vFLOE3zcPXhaPHA-P2cK95Al7fEMHlo5xs1VFdb9_RN3yEJQyi3oTHOYz91mtA1GS1Ppu4gZhIw5o1P17hqpstUx7rGCQb6hCekKOnKmekb";
 
-const PACE_GROUPS = [
-  {
-    name: 'Pack 1 • Swift Knights',
-    pace: 'Sub 7:30 min/mi',
-    distance: '5 - 10+ miles',
-    vibe: 'Competitive pacing, half/marathon training blocks, tempo workouts',
-    color: 'from-primary to-secondary',
-    badge: 'Advanced'
-  },
-  {
-    name: 'Pack 2 • Tempo Knights',
-    pace: '7:45 – 9:00 min/mi',
-    distance: '4 - 7 miles',
-    vibe: 'Steady rhythm, distance building, conversational tempo runs',
-    color: 'from-secondary-container to-primary',
-    badge: 'Intermediate'
-  },
-  {
-    name: 'Pack 3 • Cruise Knights',
-    pace: '9:15 – 10:45 min/mi',
-    distance: '3 - 5 miles',
-    vibe: 'Social chatting, recovery miles, great for intermediate runners',
-    color: 'from-tertiary-container to-tertiary',
-    badge: 'Social & Steady'
-  },
-  {
-    name: 'Pack 4 • Community Knights',
-    pace: '11:00+ min/mi & Run/Walk',
-    distance: '2 - 3.5 miles',
-    vibe: 'Zero pressure, beginner-friendly loops, sweep runner guaranteed (No Knight Left Behind!)',
-    color: 'from-tertiary to-tertiary-fixed',
-    badge: 'Beginner Friendly'
-  }
-];
-
-const FAQS = [
-  {
-    q: 'Do I have to be fast or experienced to join?',
-    a: 'Absolutely not! We run four distinct pace groups at every social run, including a dedicated run/walk group with a designated sweep runner. You will never be left behind.'
-  },
-  {
-    q: 'Are there any club dues or membership fees?',
-    a: 'Knights Running Club is 100% free for all students, alumni, faculty, and local community runners. Just show up in running shoes and lace up with us!'
-  },
-  {
-    q: 'Where do runners leave bags, keys, or water bottles?',
-    a: 'At Main Campus, runners gather at the North Track Bleachers where club lockboxes are stationed. At East Campus, members gather at Lake Park Pavilion with dedicated bag drop benches.'
-  },
-  {
-    q: 'What happens if there is bad weather or rain?',
-    a: 'Light rain is prime running weather! If conditions are hazardous (lightning, severe ice, or flash flood warnings), alerts are posted directly in the club GroupMe 1 hour prior.'
-  }
-];
-
 export default function App() {
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -76,8 +22,6 @@ export default function App() {
     message: ''
   });
   const [status, setStatus] = useState('');
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [userPaceInput, setUserPaceInput] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('contact@knightsrunningclub.com');
@@ -92,18 +36,6 @@ export default function App() {
     setStatus(`Dispatch ready! Opening your email client to contact ${formData.recipient}...`);
     window.location.href = `mailto:${formData.recipient}?subject=${subject}&body=${body}`;
   };
-
-  const getMatchedGroup = () => {
-    if (!userPaceInput) return null;
-    const pace = parseFloat(userPaceInput);
-    if (isNaN(pace) || pace <= 0) return null;
-    if (pace < 7.5) return PACE_GROUPS[0];
-    if (pace <= 9.0) return PACE_GROUPS[1];
-    if (pace <= 10.75) return PACE_GROUPS[2];
-    return PACE_GROUPS[3];
-  };
-
-  const matchedGroup = getMatchedGroup();
 
   return (
     <div className="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
@@ -124,10 +56,8 @@ export default function App() {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-space-lg text-body-sm font-label-lg uppercase tracking-wider text-on-surface-variant">
             <a href="#campuses" className="hover:text-primary transition-colors">Campuses</a>
-            <a href="#pace-groups" className="hover:text-primary transition-colors">Pace Squads</a>
             <a href="#leadership" className="hover:text-primary transition-colors">Leadership</a>
             <a href="#community" className="hover:text-primary transition-colors">Community</a>
-            <a href="#faqs" className="hover:text-primary transition-colors">FAQ</a>
             <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
           </nav>
 
@@ -169,13 +99,6 @@ export default function App() {
               Campuses &amp; Schedules
             </a>
             <a 
-              href="#pace-groups" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-space-xs text-body-md font-label-lg uppercase tracking-wider text-on-surface hover:text-primary border-b border-outline-variant/30"
-            >
-              Pace Groups &amp; Squads
-            </a>
-            <a 
               href="#leadership" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-space-xs text-body-md font-label-lg uppercase tracking-wider text-on-surface hover:text-primary border-b border-outline-variant/30"
@@ -188,13 +111,6 @@ export default function App() {
               className="py-space-xs text-body-md font-label-lg uppercase tracking-wider text-on-surface hover:text-primary border-b border-outline-variant/30"
             >
               Digital Clubhouse
-            </a>
-            <a 
-              href="#faqs" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-space-xs text-body-md font-label-lg uppercase tracking-wider text-on-surface hover:text-primary border-b border-outline-variant/30"
-            >
-              Frequently Asked Questions
             </a>
             <a 
               href="#contact" 
@@ -459,100 +375,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* Pace Groups & Squads Section */}
-          <section className="w-full py-space-2xl bg-surface" id="pace-groups">
-            <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin flex flex-col gap-space-xl">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
-                <div className="flex flex-col gap-space-xs">
-                  <span className="font-label-md text-label-md text-tertiary tracking-widest uppercase">Every Speed Has A Pack</span>
-                  <h2 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Pace Groups &amp; Squads</h2>
-                  <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-                    Never worry about running alone. Each of our runs features dedicated pace leads and designated sweep runners for a zero-drop promise.
-                  </p>
-                </div>
 
-                {/* Interactive Pace Finder Widget */}
-                <div className="bg-surface-container p-space-md rounded-xl border border-outline-variant/30 flex flex-col gap-space-xs max-w-xs w-full shadow-lg">
-                  <label className="font-label-md text-label-md font-semibold text-primary uppercase tracking-wide">
-                    Find Your Pack
-                  </label>
-                  <div className="flex items-center gap-space-xs">
-                    <input
-                      type="number"
-                      step="0.5"
-                      min="5"
-                      max="16"
-                      placeholder="e.g. 9.5"
-                      value={userPaceInput}
-                      onChange={(e) => setUserPaceInput(e.target.value)}
-                      className="w-full bg-surface-container-high text-on-surface px-space-sm py-space-xs rounded-lg text-body-sm border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary font-body-md"
-                    />
-                    <span className="font-body-sm text-body-sm text-outline shrink-0">min/mi</span>
-                  </div>
-                  {matchedGroup ? (
-                    <div className="font-label-md text-label-md text-tertiary font-medium pt-space-xs flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[16px]">check_circle</span>
-                      Recommended: <span className="font-bold text-on-surface">{matchedGroup.name.split('•')[1]}</span>
-                    </div>
-                  ) : (
-                    <span className="font-body-sm text-[12px] text-outline">Type your pace to highlight your squad</span>
-                  )}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-                {PACE_GROUPS.map((group, idx) => {
-                  const isSelected = matchedGroup && matchedGroup.name === group.name;
-                  return (
-                    <div 
-                      key={idx}
-                      className={`rounded-xl p-space-lg bg-surface-container flex flex-col justify-between gap-space-md transition-all border ${
-                        isSelected 
-                          ? 'border-tertiary shadow-[0_0_28px_rgba(0,223,193,0.35)] scale-[1.02]' 
-                          : 'border-outline-variant/20 hover:border-primary/40 shadow-lg'
-                      }`}
-                    >
-                      <div className="flex flex-col gap-space-sm">
-                        <div className="flex items-center justify-between">
-                          <span className={`px-space-sm py-0.5 rounded-full font-label-md text-[11px] font-bold text-white bg-gradient-to-r ${group.color}`}>
-                            {group.badge}
-                          </span>
-                          {isSelected && (
-                            <span className="font-label-md text-label-md text-tertiary font-bold flex items-center gap-1">
-                              ★ Your Match
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="font-headline-sm text-headline-sm text-on-surface">{group.name}</h3>
-                        <div className="flex flex-col gap-0.5 py-1">
-                          <div className="font-headline-md text-headline-md text-transparent bg-clip-text bg-gradient-to-r from-on-surface to-primary">
-                            {group.pace}
-                          </div>
-                          <div className="font-label-md text-label-md text-secondary font-medium">Distance: {group.distance}</div>
-                        </div>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                          {group.vibe}
-                        </p>
-                      </div>
-
-                      <div className="pt-space-xs border-t border-outline-variant/20 font-body-sm text-[12px] text-outline flex items-center justify-between">
-                        <span>Assigned Pacer</span>
-                        <span className="text-tertiary font-label-md text-label-md">Active Every Run</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="p-space-md rounded-xl bg-surface-container-high border border-outline-variant/20 flex items-center justify-between flex-wrap gap-space-sm">
-                <div className="flex items-center gap-space-sm">
-                  <span className="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
-                  <span className="font-label-lg text-label-lg text-on-surface">The "No Knight Left Behind" Club Promise</span>
-                </div>
-                <p className="font-body-sm text-body-sm text-on-surface-variant">Every run has a rear sweep pacer ensuring you are guided, cheered on, and brought back with the squad.</p>
-              </div>
-            </div>
-          </section>
 
           {/* Leadership & Co-Presidents Directory */}
           <section className="w-full py-space-2xl bg-surface-container-lowest" id="leadership">
@@ -807,46 +630,7 @@ export default function App() {
             </div>
           </section>
 
-          {/* First-Timer Checklist & FAQ */}
-          <section className="w-full py-space-2xl bg-surface-container-lowest" id="faqs">
-            <div className="max-w-[840px] mx-auto px-margin-mobile md:px-margin flex flex-col gap-space-xl">
-              <div className="text-center flex flex-col gap-space-xs">
-                <span className="font-label-md text-label-md text-tertiary tracking-widest uppercase">First-Timer Guide</span>
-                <h2 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Frequently Asked Questions</h2>
-                <p className="font-body-md text-body-md text-on-surface-variant">
-                  Everything you need to know before joining your first Knights workout.
-                </p>
-              </div>
 
-              <div className="flex flex-col gap-space-sm">
-                {FAQS.map((faq, idx) => {
-                  const isOpen = activeFaq === idx;
-                  return (
-                    <div 
-                      key={idx} 
-                      className="bg-surface-container rounded-xl border border-outline-variant/20 overflow-hidden transition-all shadow"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setActiveFaq(isOpen ? null : idx)}
-                        className="w-full p-space-md text-left font-headline-sm text-headline-sm text-on-surface flex justify-between items-center gap-space-md hover:bg-surface-container-high transition-colors focus:outline-none"
-                      >
-                        <span className="text-body-md font-semibold">{faq.q}</span>
-                        <span className={`material-symbols-outlined text-[24px] text-tertiary transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
-                          expand_more
-                        </span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-space-md pb-space-md font-body-sm text-body-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/20 pt-space-sm">
-                          {faq.a}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
 
           {/* Contact Form Section */}
           <section className="w-full py-space-2xl bg-surface" id="contact">
