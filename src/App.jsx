@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
 const CREST_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuAnuoBZQr5LcZMTx58YIQStlLGH5Wl8tGA9WBZnEpUPeWT9nmaDaxA9CWCjMv14LvgkEtLpsx6ETulCWH3C0owtdltTmQVyrW2RwRnOSKoPBFnVXYsuAtqi1eHi-RcbwQlP58CmBgMFC29doMBTYmFeKa1Ps3nAa-NuY-AeIKmLpb5tYHMO4-C-zS4oN_HwzYTmeAE95bcEpeVXSxGC0OFGH7gqf8wsw19p3zJXHH1_YjwGcEH2glE7aA";
-const EMBLEM_URL = "https://lh3.googleusercontent.com/aida/AEtjO1WVYogmAkmw84Hqh1gAZooM4lCIMm8iYFTwKY3ZbaTi2ghC1ArPb6JQfQrKeXb5Im7ZdQGLdYLk_-dZaxDuJnaPa0Fya4pOQ_ylXW_uH5TUj__TZxUOy8tTNWZsizHbjjxHXaFE0P2m3hXf4zPbok7iF9P48JE9s1e4A_wHmcOlOJYZuxUfM90jry30HtWCn7MHERO22EKxzg3tMa8kkQfIM2-nMxRLcTdBibpKIw9HWk348BzAymjCer8";
-const EAST_CAMPUS_MAP_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuALbuWRFyMWX91Cx9yWDw1MbWhQ63vMpzrTWarJHkRrvgW7_xa_Gal2xm1si5pFwHUkvK2_bsyAQLeA8Nj5fQpyZiWJk-oqMisLqjBxRTgfDo5_TnIbJ8q7u1t3eDoi9m7NPRBlyIrtotExetd7QhPmJ1AN4TaLUq-0L41npU2302eGOnKip4kVcsWh8gnHKKvKOufl5B1YuVVk_tOZFoRQgVJkJaXSly853yhOzceP";
-const MAIN_CAMPUS_MAP_URL = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80";
+const EMBLEM_URL = CREST_URL;
+const EASTMAN_CAMPUS_MAP_URL = "/aviationhall.png";
+const COCHRAN_CAMPUS_MAP_URL = "/wellness.png";
 
 // President photos
-const MARCUS_PHOTO_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuArbUSJMRKKKLFxevUHS5H7TYzniEWLiJI6WBMxOb68nB34VsnpYbCNJ4PIXjbzB311W0ssnY4vQm819wbbu-Wcyy_Ha8OHe0U_gWgV9PG0RtO0t2X4AJJT0bjEawygEt227g-6ezDsps8LjStovQP1sTEl1pWf0msVIJWn4LY8NRydD6oHI05FPhVNKmKLZbngJpAvrODRk_yRCZ8IvbblTRsMNenSJ3lhpuhx0ARI";
+const LOGAN_PHOTO_URL = "/logan.png";
 const ELENA_PHOTO_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuACDVo5ocFTgAXVw43Zhhq6F6XOQoxLo3grsPGMRMtQSGmnHzCWJFTqIbDdJHJc53XrruZwXRAXRKPjXgDOnlcn3pCwTrHMuk7UxCkzJsXxfQugzqucuyHPkEXDxj5lK6s7b64UV9eAr3938zbq8cir48m4zUg-H7DXdXeeOzMVNhOQoyPr5uGNOTUIXQJOcYtBAhbVlmIKXLjbzY9XTHSeNYjwVxskrmndHplDZ3b2";
 
 // Instagram Photos
-const INSTA_PHOTO_1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAWQ4ag_JmvaH6Iq9VPN75o0OwVQCaW6eCIfS_-MZr3B_e57uFkogCn5F0my-Lc-c_5ClRAw6fkzieBuwoGijoOPjzXHw_7Q_n4CFlvzPbk4DQe6TyCE3QX_rI6cKPPYu48mibW5N9-Fggd0BhQkOVqD9b3kjpk9M99QFROmpKCsW-bkOZ9A8xEp5bWiUjzBmA3OScu7grg68t594HzzwhQsxhvsTUAiqHqkiom1Ox6";
-const INSTA_PHOTO_2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuBuGEdczSc13FFFDkE7vvrEqqc9PiaphM36grUcTDIFhUaGyOH5NkViG4LKTipHQy-4pzK_WRuN0eBhSp_GrWRzgNbZE9Tj2M6msflAOKgnrDJJrzsYyNl9knZxjgLYGjjrgYLthd4PXHKaPreYGV5d7o4d_-6MKOEv74l2N8n0YN8XCiExYCZcIPjjq5VIfNAe4TcODhD92g8BUAI5kuelRUTPB_rVQ88e13613I0_";
-const INSTA_PHOTO_3 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDO6zcsyuIWUiKtE4o7Anu9ZXFh-CtEnQbW9ANYXFuqrc9fLlD0d53nUl4JFDnfJiDJTNthLDTVs6Mq7kZzUL5V9Pn9C98SrLaJsMeIQq_MNfsrZXgr5JVg71YNpKd55vFLOE3zcPXhaPHA-P2cK95Al7fEMHlo5xs1VFdb9_RN3yEJQyi3oTHOYz91mtA1GS1Ppu4gZhIw5o1P17hqpstUx7rGCQb6hCekKOnKmekb";
+const INSTA_PHOTO_1 = "/instaphoto1.png";
+const INSTA_PHOTO_2 = "/instaphoto2.png";
+const INSTA_PHOTO_3 = "/instaphoto3.png";
 
 // Social & Community Links
 const GROUPME_URL = "https://groupme.com/join_group/118524853/CwVVhVnN";
@@ -29,8 +29,6 @@ export default function App() {
     message: ''
   });
   const [status, setStatus] = useState('');
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [userPaceInput, setUserPaceInput] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('mgaknightsrunclub@gmail.com');
@@ -44,19 +42,21 @@ export default function App() {
     const body = encodeURIComponent(formData.message + '\n\nReply-To: ' + formData.email + ' (' + formData.name + ')');
     setStatus(`Dispatch ready! Opening your email client to contact ${formData.recipient}...`);
     window.location.href = `mailto:${formData.recipient}?subject=${subject}&body=${body}`;
-  };
+  
+  // Reset all fields back to blank
+  setFormData({
+    name: '',
+    email: '',
+    recipient: 'mgaknightsrunclub@gmail.com',
+    message: ''
+  });
 
-  const getMatchedGroup = () => {
-    if (!userPaceInput) return null;
-    const pace = parseFloat(userPaceInput);
-    if (isNaN(pace) || pace <= 0) return null;
-    if (pace < 7.5) return PACE_GROUPS[0];
-    if (pace <= 9.0) return PACE_GROUPS[1];
-    if (pace <= 10.75) return PACE_GROUPS[2];
-    return PACE_GROUPS[3];
+  // Clears "Dispatch read!" after 5 seconds
+  setTimeout(() =>
+  setStatus(''), 5000);
+  
   };
-
-  const matchedGroup = getMatchedGroup();
+  
 
   return (
     <div className="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
@@ -163,12 +163,12 @@ export default function App() {
                   {/* Main Bold Headline */}
                   <div className="flex flex-col">
                     <h1 className="font-display-hero text-display-hero uppercase tracking-tight text-on-surface">
-                      LACE UP. <br className="hidden sm:inline" />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">RUN TOGETHER.</span> <br />
-                      KNIGHT PACE.
+                      STEEL YOUR STRIDE <br className="hidden sm:inline" />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">RUN WITH PRIDE.</span> <br />
+                      SIDE BY SIDE.
                     </h1>
                     <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-md leading-relaxed">
-                      Two campuses, one pack. Whether you're chasing sub-7 minute splits or completing your very first 5K loop, your pack runs right here with the Knights.
+                      Two campuses, one club. Whether you're a first time runner or a veteran, we are welcoming of every single person.
                     </p>
                   </div>
 
@@ -238,22 +238,22 @@ export default function App() {
                 <span className="font-label-md text-label-md text-primary tracking-widest uppercase">Weekly Locations &amp; Logistics</span>
                 <h2 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Two Campuses. Four Weekly Runs.</h2>
                 <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-                  Choose the campus nearest to your dorm, apartment, or office. Both squads unite for joint monthly half-marathon simulations and race day cheer stations.
+                  Choose either campus near you or whichever one fits your schedule.
                 </p>
               </div>
 
               {/* Split Campus Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
                 
-                {/* Campus 1: Main Campus */}
+                {/* Campus 1: Cochran Campus */}
                 <div className="bg-surface-container rounded-xl overflow-hidden flex flex-col shadow-xl border border-outline-variant/20">
                   {/* Card Top Bar */}
                   <div className="p-space-lg bg-surface-container-high flex items-center justify-between border-b border-outline-variant/20">
                     <div className="flex items-center gap-space-sm">
                       <span className="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
-                      <span className="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">CAMPUS 01 • MAIN CAMPUS</span>
+                      <span className="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">Cochran Campus</span>
                     </div>
-                    <span className="px-space-sm py-space-xs rounded bg-primary-container/30 text-on-primary-container font-label-md text-label-md">Led by Marcus Vance</span>
+                    <span className="px-space-sm py-space-xs rounded bg-primary-container/30 text-on-primary-container font-label-md text-label-md">Led by Logan Camp</span>
                   </div>
 
                   {/* Schedule Badges */}
@@ -262,22 +262,20 @@ export default function App() {
                       <div className="flex items-center gap-space-sm">
                         <span className="material-symbols-outlined text-primary">calendar_today</span>
                         <div>
-                          <div className="font-headline-sm text-headline-sm text-on-surface">Tuesday • 6:30 PM</div>
-                          <div className="font-body-sm text-body-sm text-on-surface-variant">Track &amp; Speed Drills (400m/800m Repeats)</div>
+                          <div className="font-headline-sm text-headline-sm text-on-surface">Tuesday • 6:00 PM</div>
+                          <div className="font-body-sm text-body-sm text-on-surface-variant">1.5 mile run</div>
                         </div>
                       </div>
-                      <span className="font-label-md text-label-md text-primary uppercase">North Track Bleachers</span>
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-space-md rounded-lg bg-surface-container-low gap-space-xs border border-outline-variant/10">
                       <div className="flex items-center gap-space-sm">
                         <span className="material-symbols-outlined text-primary">calendar_today</span>
                         <div>
-                          <div className="font-headline-sm text-headline-sm text-on-surface">Thursday • 7:00 PM</div>
-                          <div className="font-body-sm text-body-sm text-on-surface-variant">Downtown 5K Social Loop + Tacos</div>
+                          <div className="font-headline-sm text-headline-sm text-on-surface">Saturday • 6:00 PM</div>
+                          <div className="font-body-sm text-body-sm text-on-surface-variant">4 mile run</div>
                         </div>
                       </div>
-                      <span className="font-label-md text-label-md text-primary uppercase">Student Rec Plaza</span>
                     </div>
                   </div>
 
@@ -286,16 +284,13 @@ export default function App() {
                     <div className="relative rounded-lg overflow-hidden bg-surface-container-lowest h-60 border border-outline-variant/20">
                       <div 
                         className="w-full h-full bg-cover bg-center" 
-                        data-location="University Main Campus Athletics Track" 
-                        style={{ backgroundImage: `url("${MAIN_CAMPUS_MAP_URL}")` }}
+                        data-location="Wellness Center Cochran Campus" 
+                        style={{ backgroundImage: `url("${COCHRAN_CAMPUS_MAP_URL}")` }}
                       ></div>
                       {/* Floating Overlay Tags */}
                       <div className="absolute bottom-3 left-3 bg-surface/90 backdrop-blur-md px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface flex items-center gap-space-xs shadow">
                         <span className="material-symbols-outlined text-tertiary text-[18px]">location_on</span>
-                        <span>North Track &amp; Rec Plaza</span>
-                      </div>
-                      <div className="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-space-md py-space-xs rounded font-label-md text-label-md text-secondary shadow">
-                        <span>Free Garage B Parking</span>
+                        <span>Outside Wellness Center</span>
                       </div>
                     </div>
                   </div>
@@ -305,26 +300,26 @@ export default function App() {
                     <div className="pt-space-md">
                       <a 
                         className="w-full py-space-sm rounded-lg bg-surface-bright hover:bg-primary-container hover:text-on-primary-container text-on-surface text-center font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-space-xs transition-colors shadow" 
-                        href="https://maps.google.com" 
+                        href="https://www.google.com/maps/place/Wellness+Center/@32.3811498,-83.3437812,17z/data=!3m1!4b1!4m6!3m5!1s0x88f16f0f78489f65:0xdfa2f354d1cda311!8m2!3d32.3811453!4d-83.3412009!16s%2Fg%2F11hfylcvrx?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" 
                         rel="noopener noreferrer" 
                         target="_blank"
                       >
                         <span className="material-symbols-outlined text-[18px]">directions</span>
-                        Get Main Campus Directions
+                        Get Cochran Campus Directions
                       </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Campus 2: East Campus */}
+                {/* Campus 2: Eastman Campus */}
                 <div className="bg-surface-container rounded-xl overflow-hidden flex flex-col shadow-xl border border-outline-variant/20">
                   {/* Card Top Bar */}
                   <div className="p-space-lg bg-surface-container-high flex items-center justify-between border-b border-outline-variant/20">
                     <div className="flex items-center gap-space-sm">
                       <span className="w-3 h-3 rounded-full bg-tertiary animate-pulse"></span>
-                      <span className="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">CAMPUS 02 • EAST CAMPUS</span>
+                      <span className="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">Eastman Campus</span>
                     </div>
-                    <span className="px-space-sm py-space-xs rounded bg-tertiary-container/30 text-on-tertiary-container font-label-md text-label-md">Led by Elena Rodriguez</span>
+                    <span className="px-space-sm py-space-xs rounded bg-tertiary-container/30 text-on-tertiary-container font-label-md text-label-md">Led by Andre Byrd</span>
                   </div>
 
                   {/* Schedule Badges */}
@@ -333,22 +328,20 @@ export default function App() {
                       <div className="flex items-center gap-space-sm">
                         <span className="material-symbols-outlined text-tertiary">calendar_today</span>
                         <div>
-                          <div className="font-headline-sm text-headline-sm text-on-surface">Wednesday • 6:45 PM</div>
-                          <div className="font-body-sm text-body-sm text-on-surface-variant">Sunset River Trail Recovery (4-5 Miles)</div>
+                          <div className="font-headline-sm text-headline-sm text-on-surface">Tuesday • 5:00 PM</div>
+                          <div className="font-body-sm text-body-sm text-on-surface-variant">5k run</div>
                         </div>
                       </div>
-                      <span className="font-label-md text-label-md text-tertiary uppercase">Lake Park Pavilion</span>
                     </div>
 
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-space-md rounded-lg bg-surface-container-low gap-space-xs border border-outline-variant/10">
                       <div className="flex items-center gap-space-sm">
                         <span className="material-symbols-outlined text-tertiary">calendar_today</span>
                         <div>
-                          <div className="font-headline-sm text-headline-sm text-on-surface">Saturday • 8:00 AM</div>
-                          <div className="font-body-sm text-body-sm text-on-surface-variant">Long Run (6-12 Miles) + Bagel Mile Social</div>
+                          <div className="font-headline-sm text-headline-sm text-on-surface">Thursday • 5:00 PM</div>
+                          <div className="font-body-sm text-body-sm text-on-surface-variant">1 mile run</div>
                         </div>
                       </div>
-                      <span className="font-label-md text-label-md text-tertiary uppercase">Trailhead Bench #4</span>
                     </div>
                   </div>
 
@@ -357,16 +350,13 @@ export default function App() {
                     <div className="relative rounded-lg overflow-hidden bg-surface-container-lowest h-60 border border-outline-variant/20">
                       <div 
                         className="w-full h-full bg-cover bg-center" 
-                        data-location="East River Lake Park Pavilion and Trailhead" 
-                        style={{ backgroundImage: `url("${EAST_CAMPUS_MAP_URL}")` }}
+                        data-location="Aviation Hall Lobby Eastman Campus" 
+                        style={{ backgroundImage: `url("${EASTMAN_CAMPUS_MAP_URL}")` }}
                       ></div>
                       {/* Floating Overlay Tags */}
                       <div className="absolute bottom-3 left-3 bg-surface/90 backdrop-blur-md px-space-md py-space-xs rounded font-label-md text-label-md text-on-surface flex items-center gap-space-xs shadow">
                         <span className="material-symbols-outlined text-primary text-[18px]">location_on</span>
-                        <span>Lake Park Pavilion &amp; Trailhead</span>
-                      </div>
-                      <div className="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-md px-space-md py-space-xs rounded font-label-md text-label-md text-tertiary shadow">
-                        <span>Free Trailhead Lot</span>
+                        <span>Aviation Hall Lobby</span>
                       </div>
                     </div>
                   </div>
@@ -376,12 +366,12 @@ export default function App() {
                     <div className="pt-space-md">
                       <a 
                         className="w-full py-space-sm rounded-lg bg-surface-bright hover:bg-tertiary hover:text-on-tertiary text-on-surface text-center font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-space-xs transition-colors shadow" 
-                        href="https://maps.google.com" 
+                        href="https://www.google.com/maps/place/Aviation+Hall/@32.2122718,-83.1290388,17z/data=!4m6!3m5!1s0x88f109aa48ccf7c9:0x59b26aaa325f23bb!8m2!3d32.2122718!4d-83.1264639!16s%2Fg%2F1hm1_hb69?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" 
                         rel="noopener noreferrer" 
                         target="_blank"
                       >
                         <span className="material-symbols-outlined text-[18px]">directions</span>
-                        Get East Campus Directions
+                        Get Eastman Campus Directions
                       </a>
                     </div>
                   </div>
@@ -398,52 +388,52 @@ export default function App() {
               {/* Section Header */}
               <div className="flex flex-col gap-space-xs">
                 <span className="font-label-md text-label-md text-primary tracking-widest uppercase">Executive Leadership</span>
-                <h2 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Meet Your Co-Presidents</h2>
+                <h2 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Meet Your Presidents</h2>
                 <p className="font-body-md text-body-md text-on-surface-variant max-w-xl">
-                  Guiding every route, curating structured training plans, and making sure nobody finishes without high fives and community support.
+                  Leading each run, charting each route, pacing each other without a doubt. 
                 </p>
               </div>
 
               {/* Leaders Side by Side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-gutter">
                 
-                {/* Co-President 1: Marcus Vance */}
+                {/* Co-President 1: Logan Camp */}
                 <div className="bg-surface-container rounded-xl p-space-lg flex flex-col md:flex-row gap-space-lg shadow-lg border border-outline-variant/20">
                   <div className="w-full md:w-48 h-64 shrink-0 rounded-lg overflow-hidden relative border border-outline-variant/20">
                     <img 
                       className="w-full h-full object-cover" 
-                      alt="Marcus Vance Co-President" 
-                      src={MARCUS_PHOTO_URL} 
+                      alt="Logan Camp Cochran President" 
+                      src={LOGAN_PHOTO_URL} 
                     />
                   </div>
                   <div className="flex flex-col justify-between flex-1 gap-space-md">
                     <div className="flex flex-col gap-space-xs">
-                      <div className="font-label-md text-label-md text-primary uppercase">Main Campus Lead • Tues &amp; Thurs</div>
-                      <h3 className="font-headline-md text-headline-md text-on-surface">Marcus Vance</h3>
+                      <div className="font-label-md text-label-md text-primary uppercase">Cochran Campus Lead • Tues &amp; Sat</div>
+                      <h3 className="font-headline-md text-headline-md text-on-surface">Logan Camp</h3>
                       <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                        Route architect and track enthusiast. Marcus designs interval progressions, threshold pyramids, and ensures every runner masters pace regulation without burning out.
+                        5 years of varsity cross country and long distance track, multiple state championships, and a drive to help others reach their running goals.
                       </p>
                     </div>
                     <div className="flex flex-col gap-space-xs pt-space-xs">
                       <a 
                         className="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm hover:text-primary transition-colors" 
-                        href="mailto:marcus@knightsrunningclub.com"
+                        href="mailto:logan.camp@mga.edu"
                       >
                         <span className="material-symbols-outlined text-[18px] text-primary">mail</span>
-                        marcus@knightsrunningclub.com
+                        logan.camp@mga.edu
                       </a>
                       <div className="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
                         <span className="material-symbols-outlined text-[18px]">phone</span>
-                        (555) 019-2834
+                        (478) 308-0768
                       </div>
                       <a 
                         className="flex items-center gap-space-xs text-secondary font-label-md text-label-md hover:underline pt-space-xs" 
-                        href="https://instagram.com" 
+                        href="https://www.instagram.com/logancamp2/" 
                         rel="noopener noreferrer" 
                         target="_blank"
                       >
                         <span className="material-symbols-outlined text-[18px]">alternate_email</span>
-                        @marcus_runs_pace
+                        @logancamp2
                       </a>
                     </div>
                   </div>
@@ -454,14 +444,14 @@ export default function App() {
                   <div className="w-full md:w-48 h-64 shrink-0 rounded-lg overflow-hidden relative border border-outline-variant/20">
                     <img 
                       className="w-full h-full object-cover" 
-                      alt="Elena Rodriguez Co-President" 
+                      alt="Andre Byrd President" 
                       src={ELENA_PHOTO_URL} 
                     />
                   </div>
                   <div className="flex flex-col justify-between flex-1 gap-space-md">
                     <div className="flex flex-col gap-space-xs">
-                      <div className="font-label-md text-label-md text-tertiary uppercase">East Campus Lead • Wed &amp; Sat</div>
-                      <h3 className="font-headline-md text-headline-md text-on-surface">Elena Rodriguez</h3>
+                      <div className="font-label-md text-label-md text-tertiary uppercase">Eastman Campus Lead • Tues &amp; Thurs</div>
+                      <h3 className="font-headline-md text-headline-md text-on-surface">Andre Byrd</h3>
                       <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                         Marathoner and community champion. Elena champions scenic trail routing, weekend distance conditioning, and spearheads post-run social connections across both campuses.
                       </p>
@@ -469,23 +459,23 @@ export default function App() {
                     <div className="flex flex-col gap-space-xs pt-space-xs">
                       <a 
                         className="flex items-center gap-space-xs text-on-surface font-body-sm text-body-sm hover:text-tertiary transition-colors" 
-                        href="mailto:elena@knightsrunningclub.com"
+                        href="mailto:andre.byrd@mga.edu"
                       >
                         <span className="material-symbols-outlined text-[18px] text-tertiary">mail</span>
-                        elena@knightsrunningclub.com
+                        andre.byrd@mga.edu
                       </a>
                       <div className="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
                         <span className="material-symbols-outlined text-[18px]">phone</span>
-                        (555) 018-3722
+                        (706) 308-6812
                       </div>
                       <a 
                         className="flex items-center gap-space-xs text-tertiary-fixed font-label-md text-label-md hover:underline pt-space-xs" 
-                        href="https://instagram.com" 
+                        href="https://instagram.com/byrdandre2k6"
                         rel="noopener noreferrer" 
                         target="_blank"
                       >
                         <span className="material-symbols-outlined text-[18px]">alternate_email</span>
-                        @elena_knightsmiles
+                        @byrdandre2k6
                       </a>
                     </div>
                   </div>
@@ -518,7 +508,7 @@ export default function App() {
                       </div>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Official GroupMe</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">The beating heart of daily club communications. Live rain delay alerts, carpools to weekend races, shoe recommendations, and weekend bagel polls.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Easy way for you to talk with fellow runners and stay updated on club activities.</p>
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-primary text-on-primary text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-secondary-fixed transition-colors font-bold shadow" 
@@ -539,7 +529,7 @@ export default function App() {
                       </div>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Knights Strava Club</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">Track weekly group mileage, compete friendly on campus sprint segments, and download verified GPX route maps directly to Garmin or Apple Watch.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Track weekly group mileage and compete friendly on campus sprint segments.</p>
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-tertiary-container text-on-tertiary-container text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-tertiary hover:text-on-tertiary transition-colors shadow" 
@@ -561,7 +551,7 @@ export default function App() {
                       <span className="px-space-sm py-space-xs rounded bg-surface-bright text-on-surface font-label-md text-label-md">@knights_runningclub</span>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Instagram Showcase</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">Weekly workout photo drops, runner spotlights, sprint finishes, and upcoming social event flyers curated by our creative club members.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Weekly run photos, monthly poster posts, and special event announcements.</p>
                     <div className="grid grid-cols-3 gap-space-xs mt-space-xs rounded-lg overflow-hidden">
                       <div 
                         className="h-20 bg-cover bg-center rounded" 
@@ -596,7 +586,7 @@ export default function App() {
                       </div>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Official Club Email</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">Direct line to leadership for sponsorships, alumni relations, pace group requests, and campus-wide communications.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Direct line to campus presidents about club matters, inquiries, and fun ideas.</p>
                     <div className="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between gap-space-xs mt-space-xs border border-outline-variant/10">
                       <div className="flex flex-col min-w-0">
                         <span className="font-label-md text-label-md text-primary uppercase">Official Dispatch</span>
@@ -677,9 +667,9 @@ export default function App() {
                           value={formData.recipient}
                           onChange={(e) => setFormData({...formData, recipient: e.target.value})}
                         >
-                          <option className="bg-surface-container-high text-on-surface py-2" value="contact@knightsrunningclub.com">Both Presidents (General Questions) — contact@knightsrunningclub.com</option>
-                          <option className="bg-surface-container-high text-on-surface py-2" value="marcus@knightsrunningclub.com">Marcus Vance (Main Campus Lead) — marcus@knightsrunningclub.com</option>
-                          <option className="bg-surface-container-high text-on-surface py-2" value="elena@knightsrunningclub.com">Elena Rodriguez (East Campus Lead) — elena@knightsrunningclub.com</option>
+                          <option className="bg-surface-container-high text-on-surface py-2" value="mgaknightsrunclub@gmail.com">Both Presidents (General Questions) — mgaknightsrunclub@gmail.com</option>
+                          <option className="bg-surface-container-high text-on-surface py-2" value="logan.camp@mga.edu">Logan Camp (Cochran Campus Lead) — logan.camp@mga.edu</option>
+                          <option className="bg-surface-container-high text-on-surface py-2" value="andre.byrd@mga.edu">Andre Byrd (Eastman Campus Lead) — andre.byrd@mga.edu</option>
                         </select>
                         <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant flex items-center justify-center z-10">
                           <span className="material-symbols-outlined text-[20px]">expand_more</span>
@@ -742,12 +732,12 @@ export default function App() {
               </p>
               <div className="flex items-center gap-space-sm text-body-sm text-outline pt-space-xs">
                 <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                <span>Main Campus &amp; East Campus Chapters</span>
+                <span>Cochran Campus &amp; Eastman Campus Chapters</span>
               </div>
               <div className="flex items-center gap-space-xs pt-space-xs">
                 <span className="material-symbols-outlined text-[18px] text-primary">alternate_email</span>
-                <a className="font-body-sm text-body-sm text-on-surface hover:text-primary transition-colors" href="mailto:contact@knightsrunningclub.com">
-                  contact@knightsrunningclub.com
+                <a className="font-body-sm text-body-sm text-on-surface hover:text-primary transition-colors" href="mailto:mgaknightsrunclub@gmail.com">
+                  mgaknightsrunclub@gmail.com
                 </a>
               </div>
             </div>
@@ -756,10 +746,10 @@ export default function App() {
               <div className="flex flex-col gap-space-xs md:text-right">
                 <span className="font-label-lg text-label-lg text-primary uppercase tracking-wider">Two-Campus Run Schedule</span>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  <span className="text-on-surface font-label-md text-label-md">Main Campus:</span> Tuesday 6:30 PM &amp; Thursday 7:00 PM
+                  <span className="text-on-surface font-label-md text-label-md">Cochran Campus:</span> Tuesday 6:00 PM &amp; Saturday 6:00 PM
                 </p>
                 <p className="font-body-sm text-body-sm text-on-surface-variant">
-                  <span className="text-on-surface font-label-md text-label-md">East Campus:</span> Wednesday 6:45 PM &amp; Saturday 8:00 AM
+                  <span className="text-on-surface font-label-md text-label-md">Eastman Campus:</span> Tuesday 5:00 PM &amp; Thursday 5:00 PM
                 </p>
               </div>
 
