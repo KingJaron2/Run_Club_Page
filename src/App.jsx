@@ -5,13 +5,19 @@ const EMBLEM_URL = "https://lh3.googleusercontent.com/aida/AEtjO1WVYogmAkmw84Hqh
 const EAST_CAMPUS_MAP_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuALbuWRFyMWX91Cx9yWDw1MbWhQ63vMpzrTWarJHkRrvgW7_xa_Gal2xm1si5pFwHUkvK2_bsyAQLeA8Nj5fQpyZiWJk-oqMisLqjBxRTgfDo5_TnIbJ8q7u1t3eDoi9m7NPRBlyIrtotExetd7QhPmJ1AN4TaLUq-0L41npU2302eGOnKip4kVcsWh8gnHKKvKOufl5B1YuVVk_tOZFoRQgVJkJaXSly853yhOzceP";
 const MAIN_CAMPUS_MAP_URL = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80";
 
+// President photos
 const MARCUS_PHOTO_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuArbUSJMRKKKLFxevUHS5H7TYzniEWLiJI6WBMxOb68nB34VsnpYbCNJ4PIXjbzB311W0ssnY4vQm819wbbu-Wcyy_Ha8OHe0U_gWgV9PG0RtO0t2X4AJJT0bjEawygEt227g-6ezDsps8LjStovQP1sTEl1pWf0msVIJWn4LY8NRydD6oHI05FPhVNKmKLZbngJpAvrODRk_yRCZ8IvbblTRsMNenSJ3lhpuhx0ARI";
 const ELENA_PHOTO_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuACDVo5ocFTgAXVw43Zhhq6F6XOQoxLo3grsPGMRMtQSGmnHzCWJFTqIbDdJHJc53XrruZwXRAXRKPjXgDOnlcn3pCwTrHMuk7UxCkzJsXxfQugzqucuyHPkEXDxj5lK6s7b64UV9eAr3938zbq8cir48m4zUg-H7DXdXeeOzMVNhOQoyPr5uGNOTUIXQJOcYtBAhbVlmIKXLjbzY9XTHSeNYjwVxskrmndHplDZ3b2";
 
+// Instagram Photos
 const INSTA_PHOTO_1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAWQ4ag_JmvaH6Iq9VPN75o0OwVQCaW6eCIfS_-MZr3B_e57uFkogCn5F0my-Lc-c_5ClRAw6fkzieBuwoGijoOPjzXHw_7Q_n4CFlvzPbk4DQe6TyCE3QX_rI6cKPPYu48mibW5N9-Fggd0BhQkOVqD9b3kjpk9M99QFROmpKCsW-bkOZ9A8xEp5bWiUjzBmA3OScu7grg68t594HzzwhQsxhvsTUAiqHqkiom1Ox6";
 const INSTA_PHOTO_2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuBuGEdczSc13FFFDkE7vvrEqqc9PiaphM36grUcTDIFhUaGyOH5NkViG4LKTipHQy-4pzK_WRuN0eBhSp_GrWRzgNbZE9Tj2M6msflAOKgnrDJJrzsYyNl9knZxjgLYGjjrgYLthd4PXHKaPreYGV5d7o4d_-6MKOEv74l2N8n0YN8XCiExYCZcIPjjq5VIfNAe4TcODhD92g8BUAI5kuelRUTPB_rVQ88e13613I0_";
 const INSTA_PHOTO_3 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDO6zcsyuIWUiKtE4o7Anu9ZXFh-CtEnQbW9ANYXFuqrc9fLlD0d53nUl4JFDnfJiDJTNthLDTVs6Mq7kZzUL5V9Pn9C98SrLaJsMeIQq_MNfsrZXgr5JVg71YNpKd55vFLOE3zcPXhaPHA-P2cK95Al7fEMHlo5xs1VFdb9_RN3yEJQyi3oTHOYz91mtA1GS1Ppu4gZhIw5o1P17hqpstUx7rGCQb6hCekKOnKmekb";
 
+// Social & Community Links
+const GROUPME_URL = "https://groupme.com/join_group/118524853/CwVVhVnN";
+const STRAVA_URL = "https://www.strava.com/clubs/knightsrunclub";
+const INSTAGRAM_URL = "https://www.instagram.com/knights_runningclub/"
 
 export default function App() {
   const [copied, setCopied] = useState(false);
@@ -19,7 +25,7 @@ export default function App() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    recipient: 'contact@knightsrunningclub.com',
+    recipient: 'mgaknightsrunclub@gmail.com',
     message: ''
   });
   const [status, setStatus] = useState('');
@@ -27,7 +33,7 @@ export default function App() {
   const [userPaceInput, setUserPaceInput] = useState('');
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('contact@knightsrunningclub.com');
+    navigator.clipboard.writeText('mgaknightsrunclub@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -64,7 +70,7 @@ export default function App() {
               src={EMBLEM_URL} 
             />
             <span className="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase group-hover:text-primary transition-colors">
-              Knights Running Club
+              Knights Run Club
             </span>
           </a>
 
@@ -78,7 +84,7 @@ export default function App() {
 
           <div className="flex items-center gap-space-sm">
             <a 
-              href="https://groupme.com" 
+              href={GROUPME_URL} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider shadow-[0_4px_16px_rgba(138,43,226,0.4)] hover:bg-surface-bright transition-all"
@@ -153,11 +159,6 @@ export default function App() {
                 
                 {/* Text & Action Column */}
                 <div className="lg:col-span-8 flex flex-col gap-space-lg">
-                  {/* Super Badge */}
-                  <div className="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-secondary-container/40 text-on-secondary-container shadow-[0_0_24px_rgba(138,43,226,0.25)] w-fit">
-                    <span className="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
-                    <span className="font-label-md text-label-md tracking-wide">STAY ACTIVE • SPRING 2026 TRAINING SCHEDULE LIVE</span>
-                  </div>
 
                   {/* Main Bold Headline */}
                   <div className="flex flex-col">
@@ -175,7 +176,7 @@ export default function App() {
                   <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
                     <a 
                       className="inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider shadow-[0_8px_32px_-8px_rgba(138,43,226,0.6)] hover:bg-surface-bright transition-all" 
-                      href="https://groupme.com" 
+                      href={GROUPME_URL} 
                       rel="noopener noreferrer" 
                       target="_blank"
                     >
@@ -187,7 +188,7 @@ export default function App() {
 
                     <a 
                       className="inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-lg bg-tertiary-container text-on-tertiary-container font-label-lg text-label-lg uppercase tracking-wider hover:bg-tertiary hover:text-on-tertiary shadow-[0_8px_24px_rgba(0,113,97,0.35)] transition-all" 
-                      href="https://strava.com" 
+                      href={STRAVA_URL}
                       rel="noopener noreferrer" 
                       target="_blank"
                     >
@@ -199,14 +200,14 @@ export default function App() {
 
                     <a 
                       className="inline-flex items-center gap-space-sm px-space-lg py-space-md rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-bright font-label-lg text-label-lg uppercase tracking-wider transition-all" 
-                      href="https://instagram.com" 
+                      href={INSTAGRAM_URL}
                       rel="noopener noreferrer" 
                       target="_blank"
                     >
                       <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                       </svg>
-                      Follow @KnightsRunningClub
+                      Follow @knights_runningclub
                     </a>
                   </div>
                 </div>
@@ -515,21 +516,13 @@ export default function App() {
                       <div className="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
                         <span className="material-symbols-outlined text-[28px]">forum</span>
                       </div>
-                      <span className="px-space-sm py-space-xs rounded bg-surface-bright text-on-surface font-label-md text-label-md">300+ Members</span>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Official GroupMe</h3>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">The beating heart of daily club communications. Live rain delay alerts, carpools to weekend races, shoe recommendations, and weekend bagel polls.</p>
-                    <div className="p-space-md rounded-lg bg-surface-container-low flex items-center gap-space-md mt-space-xs border border-outline-variant/10">
-                      <span className="material-symbols-outlined text-[36px] text-primary">qr_code_2</span>
-                      <div className="flex flex-col">
-                        <span className="font-label-md text-label-md text-on-surface">Scan &amp; Instant Join</span>
-                        <span className="font-body-sm text-body-sm text-outline">Open to student body &amp; alumni</span>
-                      </div>
-                    </div>
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-primary text-on-primary text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-secondary-fixed transition-colors font-bold shadow" 
-                    href="https://groupme.com" 
+                    href={GROUPME_URL}
                     rel="noopener noreferrer" 
                     target="_blank"
                   >
@@ -544,23 +537,13 @@ export default function App() {
                       <div className="w-12 h-12 rounded-lg bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
                         <span className="material-symbols-outlined text-[28px]">monitoring</span>
                       </div>
-                      <span className="px-space-sm py-space-xs rounded bg-surface-bright text-tertiary font-label-md text-label-md">Verified Club</span>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Knights Strava Club</h3>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">Track weekly group mileage, compete friendly on campus sprint segments, and download verified GPX route maps directly to Garmin or Apple Watch.</p>
-                    <div className="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs mt-space-xs border border-outline-variant/10">
-                      <div className="flex justify-between items-center text-body-sm">
-                        <span className="text-on-surface">Weekly Club Mileage</span>
-                        <span className="text-tertiary font-label-md text-label-md">1,482.4 mi</span>
-                      </div>
-                      <div className="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
-                        <div className="h-full bg-tertiary w-4/5 rounded-full"></div>
-                      </div>
-                    </div>
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-tertiary-container text-on-tertiary-container text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-tertiary hover:text-on-tertiary transition-colors shadow" 
-                    href="https://strava.com" 
+                    href={STRAVA_URL} 
                     rel="noopener noreferrer" 
                     target="_blank"
                   >
@@ -575,7 +558,7 @@ export default function App() {
                       <div className="w-12 h-12 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center">
                         <span className="material-symbols-outlined text-[28px]">photo_camera</span>
                       </div>
-                      <span className="px-space-sm py-space-xs rounded bg-surface-bright text-on-surface font-label-md text-label-md">@KnightsRunningClub</span>
+                      <span className="px-space-sm py-space-xs rounded bg-surface-bright text-on-surface font-label-md text-label-md">@knights_runningclub</span>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Instagram Showcase</h3>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">Weekly workout photo drops, runner spotlights, sprint finishes, and upcoming social event flyers curated by our creative club members.</p>
@@ -596,7 +579,7 @@ export default function App() {
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-surface-bright text-on-surface text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-primary-container hover:text-on-primary-container transition-colors shadow" 
-                    href="https://instagram.com" 
+                    href={INSTAGRAM_URL} 
                     rel="noopener noreferrer" 
                     target="_blank"
                   >
@@ -611,14 +594,13 @@ export default function App() {
                       <div className="w-12 h-12 rounded-lg bg-primary-container/30 text-primary flex items-center justify-center">
                         <span className="material-symbols-outlined text-[28px]">mark_email_unread</span>
                       </div>
-                      <span className="px-space-sm py-space-xs rounded bg-tertiary-container/30 text-tertiary font-label-md text-label-md">Fast Response</span>
                     </div>
                     <h3 className="font-headline-sm text-headline-sm uppercase text-on-surface">Official Club Email</h3>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">Direct line to leadership for sponsorships, alumni relations, pace group requests, and campus-wide communications.</p>
                     <div className="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between gap-space-xs mt-space-xs border border-outline-variant/10">
                       <div className="flex flex-col min-w-0">
                         <span className="font-label-md text-label-md text-primary uppercase">Official Dispatch</span>
-                        <span className="font-body-sm text-body-sm text-on-surface truncate">contact@knightsrunningclub.com</span>
+                        <span className="font-body-sm text-body-sm text-on-surface truncate">mgaknightsrunclub@gmail.com</span>
                       </div>
                       <button 
                         className="p-space-xs rounded bg-surface-bright text-on-surface hover:bg-surface-container-high transition-colors shrink-0" 
@@ -634,7 +616,7 @@ export default function App() {
                   </div>
                   <a 
                     className="w-full py-space-sm rounded-lg bg-primary-container text-on-primary-container text-center font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-bright transition-all shadow-[0_4px_16px_rgba(138,43,226,0.4)]" 
-                    href="mailto:contact@knightsrunningclub.com"
+                    href="mailto:mgaknightsrunclub@gmail.com"
                   >
                     Email Us
                   </a>
@@ -785,7 +767,7 @@ export default function App() {
                 <a 
                   aria-label="GroupMe" 
                   className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-bright transition-all shadow" 
-                  href="https://groupme.com" 
+                  href={GROUPME_URL} 
                   rel="noopener noreferrer" 
                   target="_blank"
                 >
@@ -796,7 +778,7 @@ export default function App() {
                 <a 
                   aria-label="Strava" 
                   className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:text-tertiary hover:bg-surface-bright transition-all shadow" 
-                  href="https://strava.com" 
+                  href={STRAVA_URL} 
                   rel="noopener noreferrer" 
                   target="_blank"
                 >
@@ -807,7 +789,7 @@ export default function App() {
                 <a 
                   aria-label="Instagram" 
                   className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-bright transition-all shadow" 
-                  href="https://instagram.com" 
+                  href={INSTAGRAM_URL} 
                   rel="noopener noreferrer" 
                   target="_blank"
                 >
