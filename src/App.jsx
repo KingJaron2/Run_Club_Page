@@ -162,12 +162,14 @@ export default function App() {
 
                   {/* Main Bold Headline */}
                   <div className="flex flex-col">
-                    <h1 className="font-display-hero text-display-hero uppercase tracking-tight text-on-surface">
-                      STEEL YOUR STRIDE <br className="hidden sm:inline" />
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">RUN WITH PRIDE.</span> <br />
-                      SIDE BY SIDE.
+                    <h1 className="font-display-hero text-display-hero-mobile sm:text-display-hero uppercase tracking-tight text-on-surface leading-[1.15]">
+                      <span className="block">STEEL YOUR STRIDE.</span>
+                      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                        RUN WITH PRIDE.
+                      </span>
+                      <span className="block">SIDE BY SIDE.</span>
                     </h1>
-                    <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-space-md leading-relaxed">
+                    <p className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant max-w-2xl mt-space-md leading-relaxed">
                       Two campuses, one club. Whether you're a first time runner or a veteran, we are welcoming of every single person.
                     </p>
                   </div>
