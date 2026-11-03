@@ -12,6 +12,7 @@ const INSTA_PHOTO_1 = "https://lh3.googleusercontent.com/aida-public/AB6AXuAWQ4a
 const INSTA_PHOTO_2 = "https://lh3.googleusercontent.com/aida-public/AB6AXuBuGEdczSc13FFFDkE7vvrEqqc9PiaphM36grUcTDIFhUaGyOH5NkViG4LKTipHQy-4pzK_WRuN0eBhSp_GrWRzgNbZE9Tj2M6msflAOKgnrDJJrzsYyNl9knZxjgLYGjjrgYLthd4PXHKaPreYGV5d7o4d_-6MKOEv74l2N8n0YN8XCiExYCZcIPjjq5VIfNAe4TcODhD92g8BUAI5kuelRUTPB_rVQ88e13613I0_";
 const INSTA_PHOTO_3 = "https://lh3.googleusercontent.com/aida-public/AB6AXuDO6zcsyuIWUiKtE4o7Anu9ZXFh-CtEnQbW9ANYXFuqrc9fLlD0d53nUl4JFDnfJiDJTNthLDTVs6Mq7kZzUL5V9Pn9C98SrLaJsMeIQq_MNfsrZXgr5JVg71YNpKd55vFLOE3zcPXhaPHA-P2cK95Al7fEMHlo5xs1VFdb9_RN3yEJQyi3oTHOYz91mtA1GS1Ppu4gZhIw5o1P17hqpstUx7rGCQb6hCekKOnKmekb";
 
+
 export default function App() {
   const [copied, setCopied] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,6 +23,8 @@ export default function App() {
     message: ''
   });
   const [status, setStatus] = useState('');
+  const [activeFaq, setActiveFaq] = useState(null);
+  const [userPaceInput, setUserPaceInput] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('contact@knightsrunningclub.com');
@@ -36,6 +39,18 @@ export default function App() {
     setStatus(`Dispatch ready! Opening your email client to contact ${formData.recipient}...`);
     window.location.href = `mailto:${formData.recipient}?subject=${subject}&body=${body}`;
   };
+
+  const getMatchedGroup = () => {
+    if (!userPaceInput) return null;
+    const pace = parseFloat(userPaceInput);
+    if (isNaN(pace) || pace <= 0) return null;
+    if (pace < 7.5) return PACE_GROUPS[0];
+    if (pace <= 9.0) return PACE_GROUPS[1];
+    if (pace <= 10.75) return PACE_GROUPS[2];
+    return PACE_GROUPS[3];
+  };
+
+  const matchedGroup = getMatchedGroup();
 
   return (
     <div className="bg-background font-body-md text-body-md text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
@@ -376,7 +391,6 @@ export default function App() {
           </section>
 
 
-
           {/* Leadership & Co-Presidents Directory */}
           <section className="w-full py-space-2xl bg-surface-container-lowest" id="leadership">
             <div className="max-w-[1280px] mx-auto px-margin-mobile md:px-margin flex flex-col gap-space-xl">
@@ -629,8 +643,6 @@ export default function App() {
               </div>
             </div>
           </section>
-
-
 
           {/* Contact Form Section */}
           <section className="w-full py-space-2xl bg-surface" id="contact">
