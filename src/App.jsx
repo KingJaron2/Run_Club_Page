@@ -7,7 +7,7 @@ const COCHRAN_CAMPUS_MAP_URL = "/wellness.png";
 
 // President photos
 const LOGAN_PHOTO_URL = "/logan.png";
-const ELENA_PHOTO_URL = "https://lh3.googleusercontent.com/aida-public/AB6AXuACDVo5ocFTgAXVw43Zhhq6F6XOQoxLo3grsPGMRMtQSGmnHzCWJFTqIbDdJHJc53XrruZwXRAXRKPjXgDOnlcn3pCwTrHMuk7UxCkzJsXxfQugzqucuyHPkEXDxj5lK6s7b64UV9eAr3938zbq8cir48m4zUg-H7DXdXeeOzMVNhOQoyPr5uGNOTUIXQJOcYtBAhbVlmIKXLjbzY9XTHSeNYjwVxskrmndHplDZ3b2";
+const ANDRE_PHOTO_URL = "/andre.png";
 
 // Instagram Photos
 const INSTA_PHOTO_1 = "/instaphoto1.png";
@@ -441,13 +441,13 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Co-President 2: Elena Rodriguez */}
+                {/* Co-President 2: Andre Byrd */}
                 <div className="bg-surface-container rounded-xl p-space-lg flex flex-col md:flex-row gap-space-lg shadow-lg border border-outline-variant/20">
                   <div className="w-full md:w-48 h-64 shrink-0 rounded-lg overflow-hidden relative border border-outline-variant/20">
                     <img 
                       className="w-full h-full object-cover" 
                       alt="Andre Byrd President" 
-                      src={ELENA_PHOTO_URL} 
+                      src={ANDRE_PHOTO_URL} 
                     />
                   </div>
                   <div className="flex flex-col justify-between flex-1 gap-space-md">
@@ -455,7 +455,7 @@ export default function App() {
                       <div className="font-label-md text-label-md text-tertiary uppercase">Eastman Campus Lead • Tues &amp; Thurs</div>
                       <h3 className="font-headline-md text-headline-md text-on-surface">Andre Byrd</h3>
                       <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                        Marathoner and community champion. Elena champions scenic trail routing, weekend distance conditioning, and spearheads post-run social connections across both campuses.
+                        I am an RA for the school, I ran cross country while in high school, and I've been the president for the Eastman Campus run club for 2 semesters now.
                       </p>
                     </div>
                     <div className="flex flex-col gap-space-xs pt-space-xs">
@@ -626,7 +626,7 @@ export default function App() {
                   <div className="text-center flex flex-col gap-space-xs">
                     <span className="font-label-md text-label-md text-primary tracking-widest uppercase">Get In Touch</span>
                     <h3 className="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight">Drop the Presidents a Note</h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant">Questions about pacers, upcoming race carpools, or beginner fears? Send a note directly to Marcus and Elena.</p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant">Questions about events going on, meeting times or place, or ideas about an event to do for the club</p>
                   </div>
 
                   <form className="flex flex-col gap-space-md" id="contact-presidents-form" onSubmit={handleSubmit}>
