@@ -1,0 +1,5 @@
+# 1. Forward old netlify.app subdomain to your custom domain for clean SEO
+https://*.netlify.app/* https://knightsrunclub.org/:splat 301!
+
+# 2. Single Page App routing so refreshes never 404
+/* /index.html 200
