@@ -82,31 +82,6 @@ export default function App() {
             <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
           </nav>
 
-          <div className="flex items-center gap-space-sm">
-            <a 
-              href={GROUPME_URL} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider shadow-[0_4px_16px_rgba(138,43,226,0.4)] hover:bg-surface-bright transition-all"
-            >
-              <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 2.22.723 4.27 1.95 5.932L3.1 21.2a.75.75 0 00.95.95l3.268-.85A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm3.75 12.5a3.75 3.75 0 110-7.5 3.75 3.75 0 010 7.5z" />
-              </svg>
-              <span>Join GroupMe</span>
-            </a>
-
-            {/* Mobile Nav Toggle */}
-            <button 
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-space-xs text-on-surface-variant hover:text-on-surface focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              <span className="material-symbols-outlined text-[28px]">
-                {mobileMenuOpen ? 'close' : 'menu'}
-              </span>
-            </button>
-          </div>
         </div>
 
         {/* Mobile Nav Menu Drawer */}
